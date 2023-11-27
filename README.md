@@ -46,7 +46,7 @@ The output file might still contain `binary data` so the `grep` command can fail
         cat greppabledata.txt | grep '127.0.0.1' | sed 's/ @ /\n/g'
 
 <p align="left">
-  <img src="img/grep_example.png">
+  <img src="img/grep_examplev2.png">
 </p>
 
 ## Functionality
