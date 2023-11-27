@@ -18,7 +18,7 @@ This Python script, `pcap_parser`, facilitates the extraction and parsing of TCP
 
 ### Example
 
-    python pcap_parser.py my_capture.pcap --output-file extracted_streams.txt --grep
+    python3 pcap_parser.py my_capture.pcap --output-file extracted_streams.txt --grep
 
 ## Functionality
 
