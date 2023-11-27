@@ -30,6 +30,18 @@ This Python script, `pcap_parser`, facilitates the extraction and parsing of TCP
   <img src="img/greppable_output.png">
 </p>
 
+## Note
+
+The greppable output is what makes this script awesome. With it we can `grep` for a `timestamp`, an `source/destination IP address`, a `source/destination port` or `any data` in the body of the packets stream. Then we can format the data as needed.
+
+### Example
+
+        cat greppabledata.txt | grep '3.13.65.234' | sed 's/ . /\n/g'
+
+<p align="left">
+  <img src="img/grep_example.png">
+</p>
+
 ## Functionality
 
 The script employs Scapy to read a pcap file and extract TCP streams based on the specified or all destination IPs. It organizes these streams and prints/saves them, allowing for optional greppable formatting.
