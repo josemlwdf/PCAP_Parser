@@ -32,11 +32,11 @@ This Python script, `pcap_parser`, facilitates the extraction and parsing of TCP
 
 ## Note
 
-The greppable output is what makes this script awesome. With it we can `grep` for a `timestamp`, an `source/destination IP address`, a `source/destination port` or `any data` in the body of the packets stream. Then we can format the data as needed.
+The greppable output is what makes this script awesome. With it we can `grep` for a `timestamp`, an `source/destination IP address`, a `source/destination port` or `any data` in the body of the packets stream. Then we can format the data as needed. We just replace the text ` @ ` (`blank@blank`) by `\n` and we will restore the new lines on the packet stream to get a pretty nice output.
 
 ### Example
 
-        cat greppabledata.txt | grep '3.13.65.234' | sed 's/ . /\n/g'
+        cat greppabledata.txt | grep '127.0.0.1' | sed 's/ @ /\n/g'
 
 <p align="left">
   <img src="img/grep_example.png">
