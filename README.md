@@ -20,6 +20,16 @@ This Python script, `pcap_parser`, facilitates the extraction and parsing of TCP
 
     python3 pcap_parser.py my_capture.pcap --output-file extracted_streams.txt --grep
 
+### Normal output
+<p align="left">
+  <img src="img/normpal_output.png">
+</p>
+
+### Greppable output
+<p align="left">
+  <img src="img/greppable_output.png">
+</p>
+
 ## Functionality
 
 The script employs Scapy to read a pcap file and extract TCP streams based on the specified or all destination IPs. It organizes these streams and prints/saves them, allowing for optional greppable formatting.
