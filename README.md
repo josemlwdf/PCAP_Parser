@@ -37,6 +37,10 @@ The greppable output is what makes this script awesome. With it we can `grep` fo
 ### WARNING:
 The output file might still contain `binary data` so the `grep` command can fail. Just open it with a text editor and save it to transform the binary into ascii.
 
+<p align="left">
+  <img src="img/grep_error.png">
+</p>
+
 ### Example
 
         cat greppabledata.txt | grep '127.0.0.1' | sed 's/ @ /\n/g'
