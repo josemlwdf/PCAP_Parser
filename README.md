@@ -22,7 +22,7 @@ This Python script, `pcap_parser`, facilitates the extraction and parsing of TCP
 
 ### Normal output
 <p align="left">
-  <img src="img/normpal_output.png">
+  <img src="img/normal_output.png">
 </p>
 
 ### Greppable output
