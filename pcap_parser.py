@@ -64,7 +64,7 @@ def has_printable_characters(input_string):
 
 
 def reset_file(file_name):
-    with open(file_name, 'w') as file:
+    with open(file_name, 'wt') as file:
         file.write("")
         file.close()
 
@@ -93,13 +93,17 @@ def print_tcp_streams(tcp_streams, output_file=None, grep=False):
         
         if grep:
             if '\r\n' in data:
-                data = data.replace("\r\n" , ".")
+                data = data.replace("\r\n" , " @ ")
             if '\n' in data:
-                data = data.replace("\n" , ".")
+                data = data.replace("\n" , " @ ")
             data += "\n"
 
         if output_file:
-            with open(output_file, 'a') as file:
+            with open(output_file, 'at') as file:
+                try:
+                    data = data.decode('ascii')
+                except:
+                    pass
                 file.write(data)
                 file.close()
 
