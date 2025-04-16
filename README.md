@@ -7,6 +7,10 @@ This Python script, `pcap_parser`, facilitates the extraction and parsing of TCP
 - Python 3.x
 - `scapy` library (`pip install scapy`)
 
+## Install
+
+    curl https://raw.githubusercontent.com/josemlwdf/PCAP_Parser/refs/heads/main/install.sh|bash
+
 ## Usage
 
 ### Command-line Arguments
