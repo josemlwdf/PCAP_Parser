@@ -21,7 +21,7 @@ This Python script, `pcap_parser.py`, extracts and analyzes TCP, UDP, and ICMP p
 
 🔧 Command-Line Options
 Option	Description
-```pcap_file	Path to the input pcap file (required)
+``pcap_file	Path to the input pcap file (required)
 --proto	Protocol to extract: tcp, udp, icmp, or all (default: all)
 --dest-ip	Filter by destination IP
 --src-ip	Filter by source IP
@@ -29,7 +29,7 @@ Option	Description
 --dst-port	Filter by destination port
 --output-file	Save the results to a file
 --grep <term>	Only show packets containing a specific string (case-insensitive)
---raw	Show raw data (hex or undecodable content)```
+--raw	Show raw data (hex or undecodable content)``
 
 📌 Examples
 Extract all TCP conversations with printable payloads
