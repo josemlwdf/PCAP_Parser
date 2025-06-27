@@ -47,7 +47,8 @@ Save UDP traffic to a file
 
     pcap_parser capture.pcap --proto udp --output-file udp_output.txt
 
-🧠 Features
+## 🧠 Features
+
 ✅ Full bidirectional TCP stream reconstruction
 
 ```
@@ -66,7 +67,7 @@ Normal Output
 Greppable Output
 <p align="left"> <img src="img/greppable_output.png"> </p>
 
-⚙️ Internals
+## ⚙️ Internals
 ```
 Scapy reads packets and extracts protocols of interest.
 
