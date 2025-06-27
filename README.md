@@ -21,7 +21,9 @@ This Python script, `pcap_parser.py`, extracts and analyzes TCP, UDP, and ICMP p
 
 🔧 Command-Line Options
 Option	Description
-``pcap_file	Path to the input pcap file (required)
+
+```
+pcap_file	Path to the input pcap file (required)
 --proto	Protocol to extract: tcp, udp, icmp, or all (default: all)
 --dest-ip	Filter by destination IP
 --src-ip	Filter by source IP
@@ -29,7 +31,8 @@ Option	Description
 --dst-port	Filter by destination port
 --output-file	Save the results to a file
 --grep <term>	Only show packets containing a specific string (case-insensitive)
---raw	Show raw data (hex or undecodable content)``
+--raw	Show raw data (hex or undecodable content)
+```
 
 📌 Examples
 Extract all TCP conversations with printable payloads
@@ -47,9 +50,11 @@ Save UDP traffic to a file
 🧠 Features
 ✅ Full bidirectional TCP stream reconstruction
 
-    Each TCP stream captures both client → server and server → client packets in one flow.
+```
+Each TCP stream captures both client → server and server → client packets in one flow.
 
-    Stream content is chronologically sorted by timestamp.
+Stream content is chronologically sorted by timestamp.
+```
 
 ✅ Handles TCP, UDP, ICMP (and unknown protocols)
 ✅ Greppable Output
@@ -62,12 +67,13 @@ Greppable Output
 <p align="left"> <img src="img/greppable_output.png"> </p>
 
 ⚙️ Internals
+```
+Scapy reads packets and extracts protocols of interest.
 
-    Scapy reads packets and extracts protocols of interest.
+TCP packets are grouped by stream key: ((IP_A, portA), (IP_B, portB)), sorted for bidirectional pairing.
 
-    TCP packets are grouped by stream key: ((IP_A, portA), (IP_B, portB)), sorted for bidirectional pairing.
-
-    Packets are sorted chronologically and optionally filtered via CLI flags.
+Packets are sorted chronologically and optionally filtered via CLI flags.
+````
 
 🤝 Contributing
 
@@ -75,13 +81,3 @@ Contributions and feedback are welcome! Feel free to open issues or submit pull 
 📄 License
 
 This project is licensed under the MIT License — see the LICENSE file for details.
-
----
-
-Let me know if you'd like to add:
-- Support for `http.stream` detection like Wireshark
-- JSON output
-- Interactive browsing of conversations
-- Packet reassembly (e.g., full HTTP body, FTP sessions, etc.)
-
-These can help take this parser to a more forensic or debugging-ready level.
