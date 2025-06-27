@@ -15,7 +15,7 @@ This Python script, `pcap_parser.py`, extracts and analyzes TCP, UDP, and ICMP p
 
     curl https://raw.githubusercontent.com/josemlwdf/PCAP_Parser/refs/heads/main/install.sh | bash
 
-🚀 Usage
+## 🚀 Usage
 
     python3 pcap_parser.py <pcap_file> [options]
 
@@ -62,10 +62,7 @@ Stream content is chronologically sorted by timestamp.
 
 
 🖼️ Output Examples
-Normal Output
-<p align="left"> <img src="img/normal_output.png"> </p>
-Greppable Output
-<p align="left"> <img src="img/greppable_output.png"> </p>
+<p align="left"> <img src="![image](https://github.com/user-attachments/assets/2791f9b8-8ec4-4677-afeb-c27c6fa1b6e6)"> </p>
 
 ## ⚙️ Internals
 ```
@@ -76,7 +73,7 @@ TCP packets are grouped by stream key: ((IP_A, portA), (IP_B, portB)), sorted fo
 Packets are sorted chronologically and optionally filtered via CLI flags.
 ````
 
-🤝 Contributing
+## 🤝 Contributing
 
 Contributions and feedback are welcome! Feel free to open issues or submit pull requests.
 📄 License
