@@ -1,76 +1,87 @@
 # PCAP_Parser
 
-This Python script, `pcap_parser`, facilitates the extraction and parsing of TCP streams from a pcap (packet capture) file. It uses Scapy, an interactive packet manipulation tool, to handle the parsing of network packets.
+This Python script, `pcap_parser.py`, extracts and analyzes TCP, UDP, and ICMP packet streams from a `.pcap` (packet capture) file. It uses **Scapy** to process network traffic and supports advanced filtering, grepping, and stream reconstruction (including full **bidirectional TCP conversations**).
 
-## Prerequisites
+---
+
+## 🧰 Prerequisites
 
 - Python 3.x
-- `scapy` library (`pip install scapy`)
+- Scapy (`pip install scapy`)
 
-## Install
+---
 
-    curl https://raw.githubusercontent.com/josemlwdf/PCAP_Parser/refs/heads/main/install.sh|bash
+## 📦 Install
 
-## Usage
+    curl https://raw.githubusercontent.com/josemlwdf/PCAP_Parser/refs/heads/main/install.sh | bash
 
-### Command-line Arguments
+🚀 Usage
 
-- `pcap_file`: Path to the input pcap file.
-- `--dest-ip`: Destination IP address to filter packets (optional).
-- `--output-file`: Output file to save the extracted TCP streams (optional).
-- `--grep`: Outputs the data in a greppable format (optional).
+    python3 pcap_parser.py <pcap_file> [options]
 
-### Example
+🔧 Command-Line Options
+Option	Description
+```pcap_file	Path to the input pcap file (required)
+--proto	Protocol to extract: tcp, udp, icmp, or all (default: all)
+--dest-ip	Filter by destination IP
+--src-ip	Filter by source IP
+--src-port	Filter by source port
+--dst-port	Filter by destination port
+--output-file	Save the results to a file
+--grep <term>	Only show packets containing a specific string (case-insensitive)
+--raw	Show raw data (hex or undecodable content)```
 
-    python3 pcap_parser.py my_capture.pcap --output-file extracted_streams.txt --grep
+📌 Examples
+Extract all TCP conversations with printable payloads
 
-### Normal output
-<p align="left">
-  <img src="img/normal_output.png">
-</p>
+    pcap_parser capture.pcap --proto tcp
 
-### Greppable output
-<p align="left">
-  <img src="img/greppable_output.png">
-</p>
+Filter by source IP and grep for HTTP
 
-## Note
+    pcap_parser capture.pcap --src-ip 192.168.1.5 --grep "HTTP"
 
-The greppable output is what makes this script awesome. With it we can `grep` for a `timestamp`, an `source/destination IP address`, a `source/destination port` or `any data` in the body of the packets stream. Then we can format the data as needed. We just replace the text ` @ ` (`blank@blank`) by `\n` and we will restore the new lines on the packet stream to get a pretty nice output.
+Save UDP traffic to a file
 
-### WARNING:
-The output file might still contain `binary data` so the `grep` command can fail. Just open it with a text editor and save it to transform the binary into ascii.
+    pcap_parser capture.pcap --proto udp --output-file udp_output.txt
 
-<p align="left">
-  <img src="img/grep_error.png">
-</p>
+🧠 Features
+✅ Full bidirectional TCP stream reconstruction
 
-### Example
+    Each TCP stream captures both client → server and server → client packets in one flow.
 
-        cat greppabledata.txt | grep '127.0.0.1' | sed 's/ @ /\n/g'
+    Stream content is chronologically sorted by timestamp.
 
-<p align="left">
-  <img src="img/grep_examplev2.png">
-</p>
+✅ Handles TCP, UDP, ICMP (and unknown protocols)
+✅ Greppable Output
 
-## Functionality
 
-The script employs Scapy to read a pcap file and extract TCP streams based on the specified or all destination IPs. It organizes these streams and prints/saves them, allowing for optional greppable formatting.
+🖼️ Output Examples
+Normal Output
+<p align="left"> <img src="img/normal_output.png"> </p>
+Greppable Output
+<p align="left"> <img src="img/greppable_output.png"> </p>
 
-### How it Works
+⚙️ Internals
 
-The script utilizes Scapy to iterate through the packets in the pcap file, extracting TCP packets based on given criteria such as source and destination IPs and ports. It then arranges these packets into their respective streams, maintaining packet data and timestamps in UTC format.
+    Scapy reads packets and extracts protocols of interest.
 
-### Additional Notes
+    TCP packets are grouped by stream key: ((IP_A, portA), (IP_B, portB)), sorted for bidirectional pairing.
 
-`The script processes TCP, UDP, and ICMP packets.
-Timestamps are extracted and formatted in UTC time.
-It filters packets based on the specified destination IP if provided.`
+    Packets are sorted chronologically and optionally filtered via CLI flags.
 
-## Contributing
+🤝 Contributing
 
-Feel free to contribute, open issues, or suggest improvements! Pull requests are welcomed.
+Contributions and feedback are welcome! Feel free to open issues or submit pull requests.
+📄 License
 
-## License
+This project is licensed under the MIT License — see the LICENSE file for details.
 
-`This project is licensed under the MIT License - see the LICENSE file for details.`
+---
+
+Let me know if you'd like to add:
+- Support for `http.stream` detection like Wireshark
+- JSON output
+- Interactive browsing of conversations
+- Packet reassembly (e.g., full HTTP body, FTP sessions, etc.)
+
+These can help take this parser to a more forensic or debugging-ready level.
