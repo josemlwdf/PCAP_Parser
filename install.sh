@@ -1,5 +1,4 @@
 #!/bin/bash
 sudo pip install scapy --break-system-packages
-cd /opt; sudo wget https://raw.githubusercontent.com/josemlwdf/PCAP_Parser/refs/heads/main/pcap_parser.py
-sudo chmod +x /opt/pcap_parser.py
-sudo ln -s /opt/pcap_parser.py /usr/sbin/pcap_parser
+sudo curl -s https://raw.githubusercontent.com/josemlwdf/PCAP_Parser/refs/heads/main/pcap_parser.py -o /usr/sbin/pcap_parser
+sudo chmod +x /usr/sbin/pcap_parser
