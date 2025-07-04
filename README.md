@@ -60,12 +60,19 @@ Each TCP stream captures both client → server and server → client packets in
 Stream content is chronologically sorted by timestamp.
 
 ✅ Handles TCP, UDP, ICMP (and unknown protocols)
+
 ✅ Greppable Output
+
 ✅ **PII Highlighting**: Automatically highlights potential Personally Identifiable Information (e.g., emails, passwords, credit card numbers) in the output.
+
 ✅ **DNS Query Reconstruction**: Intelligently reconstructs and displays DNS queries.
+
 ✅ **Intelligent Packet Deduplication**: For UDP, ICMP, and unknown protocols, highly similar packets are deduplicated to reduce noise.
+
 ✅ **Colorized Output**: Enhances readability with color-coded output for different protocols and highlighted PII.
+
 ✅ **Raw Data Output**: Option to display raw (hex or undecodable) payload content.
+
 ✅ **Ciphered Port Handling**: Avoids attempting to reconstruct payloads for common ciphered ports (e.g., SSH, HTTPS) to prevent garbled output.
 
 
@@ -82,7 +89,11 @@ TCP packets are grouped by stream key: ((IP_A, portA), (IP_B, portB)), sorted fo
 
 Packets are sorted chronologically and optionally filtered via CLI flags.
 
-DNS queries are reconstructed from UDP payloads. Potential PII is identified and highlighted using regular expressions. For UDP, ICMP, and unknown protocols, a similarity check is performed to deduplicate highly similar packet payloads.
+DNS queries are reconstructed from UDP payloads. 
+
+Potential PII is identified and highlighted using regular expressions. 
+
+For UDP, ICMP, and unknown protocols, a similarity check is performed to deduplicate highly similar packet payloads.
 
 
 ## 🤝 Contributing
