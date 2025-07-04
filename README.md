@@ -77,7 +77,7 @@ Stream content is chronologically sorted by timestamp.
 
 
 🖼️ Output Examples
-<p align="left"> <img src="https://github.com/user-attachments/assets/2791f9b8-8ec4-4677-afeb-c27c6fa1b6e6"> </p>
+<p align="left"> <img src="https://github.com/user-attachments/assets/74d16117-8d2b-4702-ba8e-1a05789b454a"> </p>
 
 *Note: The actual output will be colorized and may include PII highlighting, which is not fully represented in the static image.*
 
