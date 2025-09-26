@@ -1,6 +1,6 @@
 # PCAP_Parser
 
-This Python script, `pcap_parser.py`, extracts and analyzes TCP, UDP, and ICMP packet streams from a `.pcap` (packet capture) file. It uses **Scapy** to process network traffic and supports advanced filtering, grepping, and stream reconstruction (including full **bidirectional TCP conversations**).
+This Python script, `pcap_parser.py`, extracts and analyzes TCP, UDP, and ICMP packet streams from a `.pcap` (packet capture) file. It uses **Scapy** to process network traffic and supports advanced filtering, grepping, and stream reconstruction (including full **bidirectional TCP streams**).
 
 ---
 
